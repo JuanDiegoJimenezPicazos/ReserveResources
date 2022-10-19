@@ -23,7 +23,7 @@ $resourcesList = $data["resourcesList"];
 if (count($resourcesList) == 0) {
   echo "No hay datos";
 } else {
-  echo "<table border ='1'>";
+  echo "<table>";
   foreach ($resourcesList as $fila) {
     echo "<tr>";
     echo "<td>" . $fila->name . "</td>";
@@ -31,9 +31,9 @@ if (count($resourcesList) == 0) {
     echo "<td>" . $fila->location . "</td>";
     echo "<td>" . $fila->image . "</td>";
     echo "<td><a href='index.php?action=formularioModificarLibro&idLibro=" . $fila->id . "'>Modificar</a></td>";
-    echo "<td><a href='index.php?action=borrarLibro&idLibro=" . $fila->id . "'>Borrar</a></td>";
+    echo "<td><a href='index.php?action=eraseResource&id=" . $fila->id . "'>Borrar</a></td>";
     echo "</tr>";
   }
   echo "</table>";
 }
-echo "<p><a href='index.php?action=formInsertResources'>Nuevo</a></p>";
+echo "<p><a href='index.php?action=insertResourcesForm'>Nuevo</a></p>";

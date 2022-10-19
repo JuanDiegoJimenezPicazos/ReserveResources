@@ -15,26 +15,26 @@ class Resources extends Model
         parent::__construct();
     }
 
-    // // Devuelve el último id asignado en la tabla de libros
-    // public function getMaxId()
-    // {
-    //     $result = $this->db->dataQuery("SELECT MAX(idLibro) AS ultimoIdLibro FROM libros");
-    //     return $result[0]->ultimoIdLibro;
-    // }
+    // Devuelve el último id asignado en la tabla de libros
+    public function getMaxId()
+    {
+        $result = $this->db->dataQuery("SELECT MAX(id) AS lastResource FROM resources");
+        return $result[0]->ultimoIdLibro;
+    }
 
-    // // Inserta un libro. Devuelve 1 si tiene éxito o 0 si falla.
-    // public function insert($titulo, $genero, $pais, $ano, $numPaginas)
-    // {
-    //     return $this->db->dataManipulation("INSERT INTO libros (titulo,genero,pais,ano,numPaginas) VALUES ('$titulo','$genero', '$pais', '$ano', '$numPaginas')");
-    // }
+    // Inserta un libro. Devuelve 1 si tiene éxito o 0 si falla.
+    public function insert($name, $description, $location, $image)
+    {
+        return $this->db->dataManipulation("INSERT INTO resources (name,description,location,image) VALUES ('$name','$description', '$location', '$image')");
+    }
 
-    // // Inserta los autores de un libro. Recibe el id del libro y la lista de ids de los autores en forma de array.
-    // // Devuelve el número de autores insertados con éxito (0 en caso de fallo).
+    // Inserta los autores de un libro. Recibe el id del libro y la lista de ids de los autores en forma de array.
+    // Devuelve el número de autores insertados con éxito (0 en caso de fallo).
     // public function insertAutores($idLibro, $autores)
     // {
     //     $correctos = 0;
     //     foreach ($autores as $idAutor) {
-    //         $correctos += $this->db->dataManipulation("INSERT INTO escriben(idLibro, idPersona) VALUES('$idLibro', '$idAutor')");
+    //         $correctos += $this->db->dataManipulation("INSERT INTO resources(id) VALUES('$id')");
     //     }
     //     return $correctos;
     // }

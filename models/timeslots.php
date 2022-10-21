@@ -4,28 +4,29 @@
 
 include_once "model.php";
 
-class Resources extends Model
+class TimeSlots extends Model
 {
 
     // Constructor. Especifica el nombre de la tabla de la base de datos
     public function __construct()
     {
-        $this->table = "resources";
+        $this->table = "timeSlots";
         $this->idColumn = "id";
         parent::__construct();
     }
 
     // Devuelve el último id asignado en la tabla de libros
-    public function getMaxId()
-    {
-        $result = $this->db->dataQuery("SELECT MAX(id) AS lastResource FROM resources");
-        return $result[0]->ultimoIdLibro;
-    }
+    // public function getMaxId()
+    // {
+    //     $result = $this->db->dataQuery("SELECT MAX(id) AS lastTimeSlots FROM timeSlots");
+    //     return $result[0]->ultimoIdLibro;
+    // }
 
     // Inserta un libro. Devuelve 1 si tiene éxito o 0 si falla.
-    public function insert($name, $description, $location, $image)
+    public function insert($dayOfWeek, $startTime, $endTime)
     {
-        return $this->db->dataManipulation("INSERT INTO resources (name,description,location,image) VALUES ('$name','$description', '$location', '$image')");
+        return $this->db->dataManipulation("INSERT INTO timeSlots (dayOfWeek,startTime,endTime) 
+        VALUES ('$dayOfWeek','$startTime', '$endTime')");
     }
 
     // Inserta los autores de un libro. Recibe el id del libro y la lista de ids de los autores en forma de array.
@@ -40,14 +41,13 @@ class Resources extends Model
     // }
 
     // Actualiza un libro (todo menos sus autores). Devuelve 1 si tiene éxito y 0 en caso de fallo.
-    public function update($id, $name, $description, $location, $image)
+    public function update($id, $dayOfWeek, $startTime, $endTime)
     {
-        $ok = $this->db->dataManipulation("UPDATE resources SET
-                                name = '$name',
-                                description = '$description',
-                                location = '$location',
-                                image = '$image'
-                                WHERE id = '$id' ");
+        $ok = $this->db->dataManipulation("UPDATE timeSlots SET
+                                dayOfWeek = '$dayOfWeek',
+                                startTime = '$startTime',
+                                endTime = '$endTime'
+                                WHERE id = '$id'");
         return $ok;
     }
 

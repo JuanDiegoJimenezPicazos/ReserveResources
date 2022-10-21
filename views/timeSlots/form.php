@@ -6,7 +6,7 @@ if ($data) {
 
 // Vamos a usar la misma vista para insertar y modificar. Para saber si hacemos una cosa u otra,
 // usaremos la variable $libro: si existe, es porque estamos modificando un libro. Si no, estamos insertando uno nuevo.
-if (isset($resources)) {   
+if (isset($timeSlots)) {   
     echo "<h1>Modificación de recursos</h1>";
 } else {
     echo "<h1>Inserción de recursos</h1>";
@@ -14,19 +14,17 @@ if (isset($resources)) {
 
 // Sacamos los datos del libro (si existe) a variables individuales para mostrarlo en los inputs del formulario.
 // (Si no hay libro, dejamos los campos en blanco y el formulario servirá para inserción).
-$id = $resources->id ?? ""; 
-$name = $resources->name ?? "";
-$description = $resources->description ?? "";
-$location = $resources->location ?? "";
-$image = $resources->image ?? "";
+$id = $timeSlots->id ?? ""; 
+$dayOfWeek = $timeSlots->dayOfWeek ?? "";
+$startTime = $timeSlots->startTime ?? "";
+$endTime = $timeSlots->endTime ?? "";
 
 // Creamos el formulario con los campos del libro
 echo "<form action = 'index.php' method = 'get'>
         <input type='hidden' name='id' value='".$id."'>
-        Nombre:<input type='text' name='name' value='".$name."'><br>
-        Descripción:<input type='text' name='description' value='".$description."'><br>
-        Localización:<input type='text' name='location' value='".$location."'><br>
-        Imagen:<input type='text' name='image' value='".$image."'><br>";
+        Día de la semana:<input type='text' name='dayOfWeek' value='".$dayOfWeek."'><br>
+        Hora de comienzo:<input type='time' name='startTime' value='".$startTime."'><br>
+        Hora de fin:<input type='time' name='endTime' value='".$endTime."'><br>";
 
 // echo "Autores: <select name='autor[]' multiple size='3'>";
 // foreach ($todosLosAutores as $fila) {
@@ -35,13 +33,15 @@ echo "<form action = 'index.php' method = 'get'>
 //     else
 //         echo "<option value='$fila->idPersona'>$fila->nombre $fila->apellido</option>";
 // }
-echo "</select>";
+//echo "</select>";
+
+echo "<input type='hidden' name='controller' value='timeSlotsController'>";
 
 // Finalizamos el formulario
-if (isset($resources)) {
-    echo "  <input type='hidden' name='action' value='modifyResources'>";
+if (isset($timeSlots)) {
+    echo "  <input type='hidden' name='action' value='modifyTimeSlots'>";
 } else {
-    echo "  <input type='hidden' name='action' value='insertResources'>";
+    echo "  <input type='hidden' name='action' value='insertTimeSlots'>";
 }
 echo "	<input type='submit'></form>";
 echo "<p><a href='index.php'>Volver</a></p>";

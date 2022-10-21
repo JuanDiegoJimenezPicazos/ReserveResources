@@ -2,7 +2,7 @@
 // VISTA PARA LA LISTA DE LIBROS
 
 // Recuperamos la lista de libros
-$resourcesList = $data["resourcesList"];
+$timeSlotsList = $data["showList"];
 
 // Si hay algún mensaje de feedback, lo mostramos
 // if (isset($data["info"])) {
@@ -20,20 +20,19 @@ $resourcesList = $data["resourcesList"];
 //       </form><br>";
 
 // Ahora, la tabla con los datos de los libros
-if (count($resourcesList) == 0) {
+if (count($timeSlotsList) == 0) {
   echo "No hay datos";
 } else {
   echo "<table>";
-  foreach ($resourcesList as $fila) {
+  foreach ($timeSlotsList as $fila) {
     echo "<tr>";
-    echo "<td>" . $fila->name . "</td>";
-    echo "<td>" . $fila->description . "</td>";
-    echo "<td>" . $fila->location . "</td>";
-    echo "<td>" . $fila->image . "</td>";
-    echo "<td><a href='index.php?action=modifyResourcesForm&id=" . $fila->id . "'>Modificar</a></td>";
-    echo "<td><a href='index.php?action=eraseResource&id=" . $fila->id . "'>Borrar</a></td>";
+    echo "<td>" . $fila->dayOfWeek . "</td>";
+    echo "<td>" . $fila->startTime . "</td>";
+    echo "<td>" . $fila->endTime . "</td>";
+    echo "<td><a href='index.php?controller=timeSlotsController&action=modifyTimeSlotsForm&id=" . $fila->id . "'>Modificar</a></td>";
+    echo "<td><a href='index.php?controller=timeSlotsController&action=eraseTimeSlots&id=" . $fila->id . "'>Borrar</a></td>";
     echo "</tr>";
   }
   echo "</table>";
 }
-echo "<p><a href='index.php?action=insertResourcesForm'>Nuevo recurso</a></p>";
+echo "<p><a href='index.php?controller=timeSlotsController&action=insertTimeSlotsForm'>Nuevo tramo horario</a></p>";

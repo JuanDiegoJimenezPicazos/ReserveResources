@@ -26,6 +26,16 @@ echo "<form action = 'index.php' method = 'get'>
         Hora de comienzo:<input type='time' name='startTime' value='".$startTime."'><br>
         Hora de fin:<input type='time' name='endTime' value='".$endTime."'><br>";
 
+        // <label for="days">Día de la semana:</label>
+        // <select name="dayOfWeek" value='".$dayOfWeek."'>
+        //   <option value="lunes">Lunes</option>
+        //   <option value="martes">Martes</option>
+        //   <option value="miercoles">Miercoles</option>
+        //   <option value="jueves">Jueves</option>
+        //   <option value="viernes">Viernes</option>
+        // </select>
+
+
 // echo "Autores: <select name='autor[]' multiple size='3'>";
 // foreach ($todosLosAutores as $fila) {
 //     if (in_array($fila->idPersona, $autoresLibro))

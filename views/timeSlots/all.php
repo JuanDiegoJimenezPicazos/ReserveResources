@@ -20,6 +20,7 @@ $timeSlotsList = $data["showList"];
 //       </form><br>";
 
 // Ahora, la tabla con los datos de los libros
+echo "<h2>Tramos horarios</h2>";
 if (count($timeSlotsList) == 0) {
   echo "No hay datos";
 } else {

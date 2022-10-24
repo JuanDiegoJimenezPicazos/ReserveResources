@@ -20,6 +20,7 @@ $resourcesList = $data["resourcesList"];
 //       </form><br>";
 
 // Ahora, la tabla con los datos de los libros
+echo "<h2>Recursos</h2>";
 if (count($resourcesList) == 0) {
   echo "No hay datos";
 } else {

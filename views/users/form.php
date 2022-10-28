@@ -26,17 +26,7 @@ echo "<form action = 'index.php' method = 'get'>
         Nombre de usuario:<input type='text' name='username' value='".$username."'><br>
         Contraseña:<input type='text' name='password' value='".$password."'><br>
         Nombre real:<input type='text' name='realname' value='".$realname."'><br>
-        Tipo admin o user:<input type='text' name='type' value='".$type."'><br>";
-
-
-        // <label for="days">Día de la semana:</label>
-        // <select name="dayOfWeek" value='".$dayOfWeek."'>
-        //   <option value="lunes">Lunes</option>
-        //   <option value="martes">Martes</option>
-        //   <option value="miercoles">Miercoles</option>
-        //   <option value="jueves">Jueves</option>
-        //   <option value="viernes">Viernes</option>
-        // </select>
+        Tipo admin o user:<input type='text' name='type' value='".$type."' placeholder='admin o user'><br>";
 
 
 // echo "Autores: <select name='autor[]' multiple size='3'>";

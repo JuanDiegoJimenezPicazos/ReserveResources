@@ -20,39 +20,39 @@ class ResourcesController
     // --------------------------------- MOSTRAR LISTA DE LIBROS ----------------------------------------
     public function showList()
     {
-       //if (Seguridad::haySesion()) {
+       if (Seguridad::haySesion()) {
             $data["resourcesList"] = $this->resources->getAll();
             View::render("resources/all", $data);
-        /*} else {
+        } else {
             $data["error"] = "No tienes permiso para eso";
-            View::render("usuario/login", $data);
-        }*/
+            View::render("users/login", $data);
+        }
     }
 
     // --------------------------------- FORMULARIO ALTA DE LIBROS ----------------------------------------
 
     public function insertResourcesForm()
         {
-    //     if (Seguridad::haySesion()) {
-    //         $data["todosLosAutores"] = $this->autor->getAll();
-    //         $data["autoresLibro"] = array();  // Array vacío (el libro aún no tiene autores asignados)
+        if (Seguridad::haySesion()) {
+            // $data["todosLosAutores"] = $this->autor->getAll();
+            // $data["autoresLibro"] = array();  // Array vacío (el libro aún no tiene autores asignados)
             if (isset($data)) {
                 View::render("resources/form", $data);
             }else{
                 View::render("resources/form");
             }
              
-    //     } else {
-    //         $data["error"] = "No tienes permiso para eso";
-    //         View::render("usuario/login", $data);
-    //     }
+        } else {
+            $data["error"] = "No tienes permiso para eso";
+            View::render("users/login", $data);
+        }
     }
 
     // --------------------------------- INSERTAR LIBROS ----------------------------------------
 
     public function insertResources()
     {
-        //if (Seguridad::haySesion()) {
+        if (Seguridad::haySesion()) {
             // Primero, recuperamos todos los datos del formulario
             $name = ($_REQUEST["name"]);
             $description = ($_REQUEST["description"]);
@@ -77,17 +77,17 @@ class ResourcesController
             // }
             $data["resourcesList"] = $this->resources->getAll();
             View::render("resources/all", $data);
-        // } else {
-        //     $data["error"] = "No tienes permiso para eso";
-        //     View::render("usuario/login", $data);
-        // }
+        } else {
+            $data["error"] = "No tienes permiso para eso";
+            View::render("users/login", $data);
+        }
     }
 
     // --------------------------------- BORRAR LIBROS ----------------------------------------
 
-    public function eraseResource()
+    public function eraseResources()
     {
-        //if (Seguridad::haySesion()) {
+        if (Seguridad::haySesion()) {
             // Recuperamos el id del libro que hay que borrar
             $id = ($_REQUEST["id"]);
             // Pedimos al modelo que intente borrar el libro
@@ -100,17 +100,17 @@ class ResourcesController
             }
             $data["resourcesList"] = $this->resources->getAll();
             View::render("resources/all", $data);
-        // } else {
-        //     $data["error"] = "No tienes permiso para eso";
-        //     View::render("usuario/login", $data);
-        // }
+        } else {
+            $data["error"] = "No tienes permiso para eso";
+            View::render("users/login", $data);
+        }
     }
 
     // --------------------------------- FORMULARIO MODIFICAR LIBROS ----------------------------------------
 
     public function modifyResourcesForm()
     {
-        //if (Seguridad::haySesion()) {
+        if (Seguridad::haySesion()) {
             // Recuperamos los datos del libro a modificar
             $data["resources"] = $this->resources->get($_REQUEST["id"])[0];
             // Renderizamos la vista de inserción de libros, pero enviándole los datos del libro recuperado.
@@ -119,17 +119,17 @@ class ResourcesController
             // $data["todosLosAutores"] = $this->autor->getAll();
             // $data["autoresLibro"] = $this->autor->getAutores(Seguridad::limpiar($_REQUEST["idLibro"]));
             View::render("resources/form", $data);
-        // } else {
-        //     $data["error"] = "No tienes permiso para eso";
-        //     View::render("usuario/login", $data);
-        //}
+        } else {
+            $data["error"] = "No tienes permiso para eso";
+            View::render("users/login", $data);
+        }
     }
 
     // --------------------------------- MODIFICAR LIBROS ----------------------------------------
 
     public function modifyResources()
     {
-        //if (Seguridad::haySesion()) {
+        if (Seguridad::haySesion()) {
             // Primero, recuperamos todos los datos del formulario
             $name = ($_REQUEST["name"]);
             $description = ($_REQUEST["description"]);
@@ -147,10 +147,10 @@ class ResourcesController
             }
             $data["resourcesList"] = $this->resources->getAll();
             View::render("resources/all", $data);
-        // } else {
-        //     $data["error"] = "No tienes permiso para eso";
-        //     View::render("usuario/login", $data);
-        // }
+        } else {
+            $data["error"] = "No tienes permiso para eso";
+            View::render("users/login", $data);
+        }
     }
 
     // --------------------------------- BUSCAR LIBROS ----------------------------------------

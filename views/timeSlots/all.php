@@ -31,9 +31,19 @@ if (count($timeSlotsList) == 0) {
     echo "<td>" . $fila->startTime . "</td>";
     echo "<td>" . $fila->endTime . "</td>";
     echo "<td><a href='index.php?controller=timeSlotsController&action=modifyTimeSlotsForm&id=" . $fila->id . "'>Modificar</a></td>";
-    echo "<td><a href='index.php?controller=timeSlotsController&action=eraseTimeSlots&id=" . $fila->id . "'>Borrar</a></td>";
+    echo "<td><button  onclick='confirmarBorrado(" . $fila->id . ")'>Borrar</button></td>";
     echo "</tr>";
   }
   echo "</table>";
 }
 echo "<p><a href='index.php?controller=timeSlotsController&action=insertTimeSlotsForm'>Nuevo tramo horario</a></p>";
+?>
+
+<script type="text/javascript">
+  function confirmarBorrado(id){
+    console.log(id);
+    if (confirm("¿Seguro que desea eliminar este elemento?")) {
+      window.location.href='index.php?controller=timeSlotsController&action=eraseTimeSlots&id=' + id;
+    }
+  }
+</script>

@@ -20,20 +20,20 @@ class TimeSlotsController
     // --------------------------------- MOSTRAR LISTA DE LIBROS ----------------------------------------
     public function showList()
     {
-       //if (Seguridad::haySesion()) {
+       if (Seguridad::haySesion()) {
             $data["showList"] = $this->timeSlots->getAll();
             View::render("timeSlots/all", $data);
-        /*} else {
+        } else {
             $data["error"] = "No tienes permiso para eso";
-            View::render("usuario/login", $data);
-        }*/
+            View::render("users/login", $data);
+        }
     }
 
     // --------------------------------- FORMULARIO ALTA DE LIBROS ----------------------------------------
 
     public function insertTimeSlotsForm()
         {
-    //     if (Seguridad::haySesion()) {
+         if (Seguridad::haySesion()) {
     //         $data["todosLosAutores"] = $this->autor->getAll();
     //         $data["autoresLibro"] = array();  // Array vacío (el libro aún no tiene autores asignados)
             if (isset($data)) {
@@ -42,17 +42,17 @@ class TimeSlotsController
                 View::render("timeSlots/form");
             }
              
-    //     } else {
-    //         $data["error"] = "No tienes permiso para eso";
-    //         View::render("usuario/login", $data);
-    //     }
+        } else {
+            $data["error"] = "No tienes permiso para eso";
+            View::render("users/login", $data);
+        }
     }
 
     // --------------------------------- INSERTAR LIBROS ----------------------------------------
 
     public function insertTimeSlots()
     {
-        //if (Seguridad::haySesion()) {
+        if (Seguridad::haySesion()) {
             // Primero, recuperamos todos los datos del formulario
             $dayOfWeek = ($_REQUEST["dayOfWeek"]);
             $startTime = ($_REQUEST["startTime"]);
@@ -76,17 +76,17 @@ class TimeSlotsController
             // }
             $data["showList"] = $this->timeSlots->getAll();
             View::render("timeSlots/all", $data);
-        // } else {
-        //     $data["error"] = "No tienes permiso para eso";
-        //     View::render("usuario/login", $data);
-        // }
+        } else {
+            $data["error"] = "No tienes permiso para eso";
+            View::render("users/login", $data);
+        }
     }
 
     // --------------------------------- BORRAR LIBROS ----------------------------------------
 
     public function eraseTimeSlots()
     {
-        //if (Seguridad::haySesion()) {
+        if (Seguridad::haySesion()) {
             // Recuperamos el id del libro que hay que borrar
             $id = ($_REQUEST["id"]);
             // Pedimos al modelo que intente borrar el libro
@@ -99,17 +99,17 @@ class TimeSlotsController
             }
             $data["showList"] = $this->timeSlots->getAll();
             View::render("timeSlots/all", $data);
-        // } else {
-        //     $data["error"] = "No tienes permiso para eso";
-        //     View::render("usuario/login", $data);
-        // }
+        } else {
+            $data["error"] = "No tienes permiso para eso";
+            View::render("users/login", $data);
+        }
     }
 
     // --------------------------------- FORMULARIO MODIFICAR LIBROS ----------------------------------------
 
     public function modifyTimeSlotsForm()
     {
-        //if (Seguridad::haySesion()) {
+        if (Seguridad::haySesion()) {
             // Recuperamos los datos del libro a modificar
             $data["timeSlots"] = $this->timeSlots->get($_REQUEST["id"])[0];
             // Renderizamos la vista de inserción de libros, pero enviándole los datos del libro recuperado.
@@ -118,17 +118,17 @@ class TimeSlotsController
             // $data["todosLosAutores"] = $this->autor->getAll();
             // $data["autoresLibro"] = $this->autor->getAutores(Seguridad::limpiar($_REQUEST["idLibro"]));
             View::render("timeSlots/form", $data);
-        // } else {
-        //     $data["error"] = "No tienes permiso para eso";
-        //     View::render("usuario/login", $data);
-        //}
+        } else {
+            $data["error"] = "No tienes permiso para eso";
+            View::render("users/login", $data);
+        }
     }
 
     // --------------------------------- MODIFICAR LIBROS ----------------------------------------
 
     public function modifyTimeSlots()
     {
-        //if (Seguridad::haySesion()) {
+        if (Seguridad::haySesion()) {
             // Primero, recuperamos todos los datos del formulario
             $dayOfWeek = ($_REQUEST["dayOfWeek"]);
             $startTime = ($_REQUEST["startTime"]);
@@ -145,10 +145,10 @@ class TimeSlotsController
             }
             $data["showList"] = $this->timeSlots->getAll();
             View::render("timeSlots/all", $data);
-        // } else {
-        //     $data["error"] = "No tienes permiso para eso";
-        //     View::render("usuario/login", $data);
-        // }
+        } else {
+            $data["error"] = "No tienes permiso para eso";
+            View::render("users/login", $data);
+        }
     }
 
     // --------------------------------- BUSCAR LIBROS ----------------------------------------

@@ -32,9 +32,17 @@ if (count($usersList) == 0) {
     echo "<td>" . $fila->realname . "</td>";
     echo "<td>" . $fila->type . "</td>";
     echo "<td><a href='index.php?controller=usersController&action=modifyUsersForm&id=" . $fila->id . "'>Modificar</a></td>";
-    echo "<td><a href='index.php?controller=usersController&action=eraseUsers&id=" . $fila->id . "'>Borrar</a></td>";
-    echo "</tr>";
+    echo "<td><button  onclick='confirmarBorrado(" . $fila->id . ")'>Borrar</button></td>";    echo "</tr>";
   }
   echo "</table>";
 }
-echo "<p><a href='index.php?controller=usersController&action=insertUsersForm'>Nuevo tramo horario</a></p>";
+echo "<p><a href='index.php?controller=usersController&action=insertUsersForm'>Nuevo usuario</a></p>";
+?>
+
+<script type="text/javascript">
+  function confirmarBorrado(id){
+    if (confirm("¿Seguro que desea eliminar este elemento?")) {
+      window.location.href='index.php?controller=usersController&action=eraseUsers&id=' + id;
+    }
+  }
+</script>

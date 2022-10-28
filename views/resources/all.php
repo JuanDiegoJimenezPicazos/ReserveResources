@@ -31,10 +31,20 @@ if (count($resourcesList) == 0) {
     echo "<td>" . $fila->description . "</td>";
     echo "<td>" . $fila->location . "</td>";
     echo "<td>" . $fila->image . "</td>";
-    echo "<td><a href='index.php?action=modifyResourcesForm&id=" . $fila->id . "'>Modificar</a></td>";
-    echo "<td><a href='index.php?action=eraseResource&id=" . $fila->id . "'>Borrar</a></td>";
+    echo "<td><a href='index.php?controller=resourcesController&action=modifyResourcesForm&id=" . $fila->id . "'>Modificar</a></td>";
+    echo "<td><button  onclick='confirmarBorrado(" . $fila->id . ")'>Borrar</button></td>";
     echo "</tr>";
   }
   echo "</table>";
 }
-echo "<p><a href='index.php?action=insertResourcesForm'>Nuevo recurso</a></p>";
+echo "<p><a href='index.php?controller=resourcesController&action=insertResourcesForm'>Nuevo recurso</a></p>";
+?>
+
+<script type="text/javascript">
+  function confirmarBorrado(id){
+    console.log(id);
+    if (confirm("¿Seguro que desea eliminar este elemento?")) {
+      window.location.href='index.php?controller=resourcesController&action=eraseResources&id=' + id;
+    }
+  }
+</script>

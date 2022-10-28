@@ -21,12 +21,12 @@ $location = $resources->location ?? "";
 $image = $resources->image ?? "";
 
 // Creamos el formulario con los campos del libro
-echo "<form action = 'index.php' method = 'get'>
+echo "<form enctype='multipart/form-data' action = 'index.php' method = 'POST'>
         <input type='hidden' name='id' value='".$id."'>
         Nombre:<input type='text' name='name' value='".$name."'><br>
         Descripción:<input type='text' name='description' value='".$description."'><br>
         Localización:<input type='text' name='location' value='".$location."'><br>
-        Imagen:<input type='text' name='image' value='".$image."'><br>";
+        Imagen:<input type='file' name='image'><br>";
 
 // echo "Autores: <select name='autor[]' multiple size='3'>";
 // foreach ($todosLosAutores as $fila) {
@@ -36,6 +36,8 @@ echo "<form action = 'index.php' method = 'get'>
 //         echo "<option value='$fila->idPersona'>$fila->nombre $fila->apellido</option>";
 // }
 echo "</select>";
+
+echo "<input type='hidden' name='controller' value='resourcesController'>";
 
 // Finalizamos el formulario
 if (isset($resources)) {

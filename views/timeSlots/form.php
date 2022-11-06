@@ -22,9 +22,9 @@ $endTime = $timeSlots->endTime ?? "";
 // Creamos el formulario con los campos del libro
 echo "<form action = 'index.php' method = 'get'>
         <input type='hidden' name='id' value='".$id."'>
-        Día de la semana:<input type='text' name='dayOfWeek' value='".$dayOfWeek."'><br>
-        Hora de comienzo:<input type='time' name='startTime' value='".$startTime."'><br>
-        Hora de fin:<input type='time' name='endTime' value='".$endTime."'><br>";
+        Día de la semana: <input type='text' name='dayOfWeek' value='".$dayOfWeek."'><br>
+        Hora de comienzo: <input type='time' name='startTime' value='".$startTime."'><br>
+        Hora de fin: <input type='time' name='endTime' value='".$endTime."'><br>";
 
         // <label for="days">Día de la semana:</label>
         // <select name="dayOfWeek" value='".$dayOfWeek."'>

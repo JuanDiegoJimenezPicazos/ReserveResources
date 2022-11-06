@@ -24,13 +24,21 @@ echo "<h2>Recursos</h2>";
 if (count($resourcesList) == 0) {
   echo "No hay datos";
 } else {
-  echo "<table>";
+  echo "<table class='table table-striped'>";
+  echo "<tr>";
+  echo "<th>Nombre</th>";
+  echo "<th>Descripción</th>";
+  echo "<th>Localización</th>";
+  echo "<th>Imagen</th>";
+  echo "<th>Modificación</th>";
+  echo "<th>Borrado</th>";
+  echo "</tr>";
   foreach ($resourcesList as $fila) {
     echo "<tr>";
     echo "<td>" . $fila->name . "</td>";
     echo "<td>" . $fila->description . "</td>";
     echo "<td>" . $fila->location . "</td>";
-    echo "<td>" . $fila->image . "</td>";
+    echo "<td><img src='" . $fila->image . "'></td>";
     echo "<td><a href='index.php?controller=resourcesController&action=modifyResourcesForm&id=" . $fila->id . "'>Modificar</a></td>";
     echo "<td><button  onclick='confirmarBorrado(" . $fila->id . ")'>Borrar</button></td>";
     echo "</tr>";

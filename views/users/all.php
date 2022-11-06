@@ -24,7 +24,15 @@ echo "<h2>Usuarios</h2>";
 if (count($usersList) == 0) {
   echo "No hay datos";
 } else {
-  echo "<table>";
+  echo "<table class='table table-striped'>";
+  echo "<tr>";
+  echo "<th>Nombre de usuario</th>";
+  echo "<th>Contraseña</th>";
+  echo "<th>Nombre real</th>";
+  echo "<th>Tipo de usuario</th>";
+  echo "<th>Modificación</th>";
+  echo "<th>Borrado</th>";
+  echo "</tr>";
   foreach ($usersList as $fila) {
     echo "<tr>";
     echo "<td>" . $fila->username . "</td>";
@@ -32,7 +40,8 @@ if (count($usersList) == 0) {
     echo "<td>" . $fila->realname . "</td>";
     echo "<td>" . $fila->type . "</td>";
     echo "<td><a href='index.php?controller=usersController&action=modifyUsersForm&id=" . $fila->id . "'>Modificar</a></td>";
-    echo "<td><button  onclick='confirmarBorrado(" . $fila->id . ")'>Borrar</button></td>";    echo "</tr>";
+    echo "<td><button  onclick='confirmarBorrado(" . $fila->id . ")'>Borrar</button></td>";    
+    echo "</tr>";
   }
   echo "</table>";
 }

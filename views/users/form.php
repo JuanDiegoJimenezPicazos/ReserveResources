@@ -23,10 +23,10 @@ $type = $users->type ?? "";
 // Creamos el formulario con los campos del libro
 echo "<form action = 'index.php' method = 'get'>
         <input type='hidden' name='id' value='".$id."'>
-        Nombre de usuario:<input type='text' name='username' value='".$username."'><br>
-        Contraseña:<input type='text' name='password' value='".$password."'><br>
-        Nombre real:<input type='text' name='realname' value='".$realname."'><br>
-        Tipo admin o user:<input type='text' name='type' value='".$type."' placeholder='admin o user'><br>";
+        Nombre de usuario: <input type='text' name='username' value='".$username."'><br>
+        Contraseña: <input type='password' name='password' value='".$password."'><br>
+        Nombre real: <input type='text' name='realname' value='".$realname."'><br>
+        Tipo admin o user: <input type='text' name='type' value='".$type."' placeholder='admin o user'><br>";
 
 
 // echo "Autores: <select name='autor[]' multiple size='3'>";

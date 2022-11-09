@@ -42,7 +42,7 @@ if (count($reservationsList) == 0) {
     echo "<td>" . $fila->name . "</td>";
     echo "<td>" . $fila->description . "</td>";
     echo "<td>" . $fila->location . "</td>";
-    echo "<td>" . $fila->image . "</td>";
+    echo "<td><img src='" . $fila->image . "' width='200'></td>";
     echo "<td>" . $fila->realname . "</td>";
     echo "<td>" . $fila->dayOfWeek . "</td>";
     echo "<td>" . $fila->startTime . "</td>";

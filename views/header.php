@@ -10,14 +10,14 @@
         h1,h2, form, nav, th, td{
             text-align: center;
         }
-        table{
+        /* table{
             margin-left: auto;
             margin-right: auto;
             border-collapse: collapse;
         }
         td, th{
             border: 1px solid black;
-        }
+        } */
         body {
             margin: 0;
             padding: 0;

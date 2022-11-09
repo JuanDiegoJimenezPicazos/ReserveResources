@@ -14,6 +14,7 @@ class ReservationsController
     public function __construct()
     {
         $this->reservations = new Reservations();
+        $this->resources = new Resources();
         
     }
 
@@ -34,7 +35,7 @@ class ReservationsController
     public function reservationsForm()
         {
         if (Seguridad::haySesion()) {
-            // $data["todosLosAutores"] = $this->autor->getAll();
+            $data["todosLosRecursos"] = $this->resources->getAll();
             // $data["autoresLibro"] = array();  // Array vacío (el libro aún no tiene autores asignados)
             if (isset($data)) {
                 View::render("reservations/form", $data);

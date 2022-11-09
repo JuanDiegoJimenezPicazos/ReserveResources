@@ -26,7 +26,19 @@ echo "<form enctype='multipart/form-data' action = 'index.php' method = 'POST'>
         Nombre: <input type='text' name='name' value='".$name."'><br>
         Descripción: <input type='text' name='description' value='".$description."'><br>
         Localización: <input type='text' name='location' value='".$location."'><br>
-        Imagen: <input type='file' name='image'><br>";
+        Imagen: <input type='text' name='image' id='image'><br>";
+
+        // $ruta_fichero_origen = $_FILES['imagen1']['tmp_name'];
+        // $ruta_nuevo_destino = $ruta_indexphp . '/images/' . $_FILES['imagen1']['name'];
+
+        // $extensiones = array(0=>'image/jpg',1=>'image/jpeg',2=>'image/png');
+        // if ( in_array($_FILES['imagen1']['type'], $extensiones) ) {
+        //     echo 'Es una imagen';
+        //     if(!move_uploaded_file ( $ruta_fichero_origen, $ruta_nuevo_destino)) {
+        //         echo 'Error al guardar el fichero';
+        //     }
+        // }
+
 
 // echo "Autores: <select name='autor[]' multiple size='3'>";
 // foreach ($todosLosAutores as $fila) {
@@ -35,7 +47,7 @@ echo "<form enctype='multipart/form-data' action = 'index.php' method = 'POST'>
 //     else
 //         echo "<option value='$fila->idPersona'>$fila->nombre $fila->apellido</option>";
 // }
-echo "</select>";
+// echo "</select>";
 
 echo "<input type='hidden' name='controller' value='resourcesController'>";
 

@@ -38,7 +38,7 @@ if (count($resourcesList) == 0) {
     echo "<td>" . $fila->name . "</td>";
     echo "<td>" . $fila->description . "</td>";
     echo "<td>" . $fila->location . "</td>";
-    echo "<td><img src='" . $fila->image . "'></td>";
+    echo "<td><img src='" . $fila->image . "' width='200'></td>";
     echo "<td><a href='index.php?controller=resourcesController&action=modifyResourcesForm&id=" . $fila->id . "'>Modificar</a></td>";
     echo "<td><button  onclick='confirmarBorrado(" . $fila->id . ")'>Borrar</button></td>";
     echo "</tr>";
